@@ -2,6 +2,8 @@
 
 A colourful maths game for ages 10 and up (adults included). It runs in any browser, with nothing to install.
 
+### ▶️ [Play it now](https://laxman-123ai.github.io/number-spark/)
+
 ## Modes
 
 | Mode | What you do |
