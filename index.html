@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Number Spark</title>
+  <meta name="description" content="Number Spark: a quick, colourful maths game for ages 10 and up.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <button class="logo" id="homeBtn" title="Home">Number<span>Spark</span></button>
+      <button class="icon-btn" id="soundBtn" aria-label="Toggle sound">🔊</button>
+    </header>
+
+    <!-- HOME -->
+    <section id="home" class="screen active">
+      <p class="tagline">Quick maths and clever puzzles, for ages 10 to 110.</p>
+      <div class="diff" role="group" aria-label="Difficulty">
+        <button data-diff="easy">Easy</button>
+        <button data-diff="normal">Normal</button>
+        <button data-diff="hard">Brain-burner</button>
+      </div>
+      <div class="modes">
+        <button class="mode-card" data-mode="blitz">
+          <span class="emoji">⚡</span>
+          <h2>Blitz</h2>
+          <p>You get 60 seconds. Answer fast, build combos and climb the levels.</p>
+          <span class="best" data-best="blitz"></span>
+        </button>
+        <button class="mode-card" data-mode="target">
+          <span class="emoji">🎯</span>
+          <h2>Make the Number</h2>
+          <p>Combine number tiles with + − × ÷ until you hit the target.</p>
+          <span class="best" data-best="target"></span>
+        </button>
+        <button class="mode-card" data-mode="sequence">
+          <span class="emoji">🧩</span>
+          <h2>Pattern Hunt</h2>
+          <p>Work out the hidden rule and pick the next number.</p>
+          <span class="best" data-best="sequence"></span>
+        </button>
+      </div>
+      <p class="hint">Keyboard: 1–4 pick answers · Enter = next · Esc = home</p>
+    </section>
+
+    <!-- QUIZ (Blitz + Pattern Hunt) -->
+    <section id="quiz" class="screen">
+      <div class="hud">
+        <div><small>Score</small><b id="qScore">0</b></div>
+        <div><small id="qMidLabel">Level</small><b id="qMidVal">1</b></div>
+        <div><small id="qRightLabel">Time</small><b id="qRightVal">60</b></div>
+      </div>
+      <div class="bar"><div id="qBar"></div></div>
+      <div id="combo" class="combo"></div>
+      <div id="question" class="question"></div>
+      <div id="choices" class="choices"></div>
+      <div id="explain" class="explain"></div>
+    </section>
+
+    <!-- MAKE THE NUMBER -->
+    <section id="target" class="screen">
+      <div class="hud">
+        <div><small>Score</small><b id="tScore">0</b></div>
+        <div><small>Round</small><b id="tRound">1/5</b></div>
+        <div><small>Time</small><b id="tTime">0s</b></div>
+      </div>
+      <div class="target-box">
+        <small>Target</small>
+        <div id="tTarget">0</div>
+        <div id="tNear" class="near"></div>
+      </div>
+      <div id="tiles" class="tiles"></div>
+      <div id="ops" class="ops">
+        <button data-op="+" aria-label="plus">+</button>
+        <button data-op="−" aria-label="minus">−</button>
+        <button data-op="×" aria-label="times">×</button>
+        <button data-op="÷" aria-label="divide">÷</button>
+      </div>
+      <div class="row">
+        <button id="tUndo">↶ Undo</button>
+        <button id="tReset">⟲ Reset</button>
+        <button id="tGiveUp">💡 Show answer</button>
+      </div>
+      <div id="tLog" class="log"></div>
+      <div id="tMsg" class="explain"></div>
+      <p class="hint">Tap a number, then an operation, then another number.</p>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="screen">
+      <h2 id="rTitle" class="r-title">Nice work!</h2>
+      <div id="rScore" class="r-score">0</div>
+      <div id="rBest" class="r-best"></div>
+      <ul id="rLines" class="r-lines"></ul>
+      <div class="row">
+        <button id="rAgain" class="btn">Play again</button>
+        <button id="rHome" class="btn ghost">Home</button>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="game.js"></script>
+</body>
+</html>
